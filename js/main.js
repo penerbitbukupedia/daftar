@@ -5,7 +5,7 @@ import { postWithToken } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.6/cro
 
 getWithHeader("https://ped.fly.dev/auth/userdata","login",getCookie("login"),tokenFunction);
 function tokenFunction(result){
-    if(!result){
+    if(!result.phone){
         redirect("/");
     }else{
         console.log(result.phone);
