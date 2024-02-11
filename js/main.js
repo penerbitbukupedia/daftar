@@ -3,7 +3,12 @@ import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {onClick,getValue,setValue} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import { postWithToken,getWithHeader } from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.6/croot.js";
 
-getWithHeader("https://ped.fly.dev/auth/userdata","login",getCookie("login"),tokenFunction);
+if (getCookie("login")){
+    getWithHeader("https://ped.fly.dev/auth/userdata","login",getCookie("login"),tokenFunction);
+}else{
+    redirect("/");
+}
+
 function tokenFunction(result){
     if(!result.phone){
         redirect("/");
