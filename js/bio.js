@@ -8,7 +8,7 @@ function uploadImage() {
         alert('Please select an image file');
         return;
     }
-    hide("inputfile");
+    //hide("inputfile");
     let besar=getFileSize("imageInput");
     setInner("isi",besar);
     postFile('https://ped.fly.dev/auth/upload/image/profil',"imageInput","image",renderToHtml);
