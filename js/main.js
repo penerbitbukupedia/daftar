@@ -23,7 +23,6 @@ function tokenFunction(result){
 
 
 function PostSignUp(){
-    setInner("formsection",piggi);
     let datainjson = {
         "nama": getValue("nama"),
         "email": getValue("email"),
@@ -31,6 +30,7 @@ function PostSignUp(){
         "pekerjaan":getValue("pekerjaan"),
         "alamat":getValue("alamat")
     }
+    setInner("formsection",piggi);
     postWithToken("https://ped.fly.dev/auth/daftar","login",getCookie("login"),datainjson,responseFunction);
 }
 
