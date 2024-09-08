@@ -13,8 +13,6 @@ function tokenFunction(result){
     if(!result.phonenumber){
         redirect("/");
     }else{
-        console.log(result);
-        //setValue("phone",result.phone);
         onClick("savebutton",uploadImage);
         onChange("imageInput",onchangeInputProfPic);
         renderProfPic(result.profpic);
