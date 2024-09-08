@@ -14,7 +14,10 @@ function tokenFunction(result){
     console.log(result);
     setValue("nama",result.name);
     setValue("phone",result.phonenumber);
-    setValue("email",result.email);
+    if(result.email){
+        setValue("email",result.email);
+    }
+    
     onClick("submit",PostSignUp);
 }
 
