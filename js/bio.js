@@ -1,5 +1,5 @@
 import {setInner,getValue,onClick,onChange} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
-import {postFileWithHeader,getWithHeader} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.2/croot.js";
+import {postFileWithHeader,getWithHeader,postJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.5/api.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 
@@ -15,6 +15,7 @@ function tokenFunction(result){
     }else{
         onClick("savebutton",uploadImage);
         onChange("imageInput",onchangeInputProfPic);
+        onClick("publishbutton",publishBio);
         //renderProfPic(result.profpic);
     }
 }
@@ -28,6 +29,20 @@ function onchangeInputProfPic(){
       } 
 }
 
+function publishBio(){
+    const publishbutton = document.getElementById('publishbutton');
+    publishbutton.disabled=true;
+    publishbutton.classList.add('opacity-50', 'cursor-not-allowed');
+    datajson={
+        bio:getValue('bio')
+    }
+    postJSON('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user/bio',"login",getCookie("login"),"imageInput",datajson,runafterPostBio)
+
+}
+
+function runafterPostBio(result){
+    console.log(result);
+}
 
 
 function uploadImage() {
