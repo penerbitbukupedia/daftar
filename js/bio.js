@@ -26,14 +26,9 @@ function uploadImage() {
         alert('Please select an image file');
         return;
     }
-    //hide("inputfile");
-    let besar=getFileSize("imageInput");
-    setInner("isi",besar);
     postFileWithHeader('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/upload/profpic',"login",getCookie("login"),"imageInput","profpic",renderToHtml)
 }
 
 function renderToHtml(result){
     console.log(result);
-    //setInner("isi",result.content);
-    show("inputfile");
 }
