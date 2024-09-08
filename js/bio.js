@@ -36,8 +36,7 @@ function publishBio(){
     datajson={
         bio:getValue('bio')
     }
-    postJSON('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user/bio',"login",getCookie("login"),"imageInput",datajson,runafterPostBio)
-
+    postJSON('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user/bio',"login",getCookie("login"),"imageInput",datajson,runafterPostBio);
 }
 
 function runafterPostBio(result){
