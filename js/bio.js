@@ -15,7 +15,7 @@ function tokenFunction(result){
     }else{
         onClick("savebutton",uploadImage);
         onChange("imageInput",onchangeInputProfPic);
-        renderProfPic(result.profpic);
+        //renderProfPic(result.profpic);
     }
 }
 
