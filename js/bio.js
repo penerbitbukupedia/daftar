@@ -34,6 +34,6 @@ function uploadImage() {
 
 function renderToHtml(result){
     console.log(result);
-    setInner("isi",result.content);
+    //setInner("isi",result.content);
     show("inputfile");
 }
