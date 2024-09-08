@@ -49,10 +49,14 @@ function uploadImage() {
 
 function renderToHtml(result){
     console.log(result);
+    renderProfPic(result.location);
+}
+
+function renderProfPic(imageurl){
     const uploadPreview = document.getElementById('uploadPreview');
     // Buat elemen img dengan src dari file yang diunggah
     const imgElement = document.createElement('img');
-    imgElement.src = result.location;
+    imgElement.src = imageurl;
     imgElement.alt = "Uploaded Image";
     imgElement.classList.add("w-full", "h-full", "object-cover", "rounded-lg");
 
