@@ -1,4 +1,4 @@
-import {setInner, show,hide,getValue,getFileSize,onClick} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
+import {setInner,getValue,onClick,onChange} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import {postFileWithHeader,getWithHeader} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.2/croot.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
@@ -15,8 +15,18 @@ function tokenFunction(result){
     }else{
         console.log(result.phonenumber);
         //setValue("phone",result.phone);
-        onClick("savebutton",uploadImage)
+        onClick("savebutton",uploadImage);
+        onChange("imageInput",onchangeInputProfPic);
     }
+}
+
+function onchangeInputProfPic(){
+    const imageInput = document.getElementById('imageInput');
+    if (imageInput.files.length > 0) {
+        setInner('ket1','Dipilih file: ');
+        setInner('ket2',imageInput.files[0].name);
+        setInner('ket3','Tekan save untuk melakukan upload');
+      } 
 }
 
 
