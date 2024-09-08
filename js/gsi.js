@@ -10,8 +10,27 @@ await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css
 
 const target_url="https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/auth/register/users";
 
+// Panggil fungsi untuk menambahkan elemen
+appendGoogleSignin();
 
-
+// Buat fungsi untuk menambahkan elemen div ke dalam DOM
+export function appendGoogleSignin() {
+    // Buat elemen div
+    const div = document.createElement("div");
+    
+    // Set atribut-atribut yang diperlukan
+    div.id = "g_id_onload";
+    div.setAttribute("data-client_id", "239713755402-4hr2cva377m43rsqs2dk0c7f7cktfeph.apps.googleusercontent.com");
+    div.setAttribute("data-context", "signin");
+    div.setAttribute("data-ux_mode", "popup");
+    div.setAttribute("data-callback", "handleCredentialResponse");
+    div.setAttribute("data-auto_select", "true");
+    div.setAttribute("data-itp_support", "true");
+  
+    // Append elemen div ke body atau elemen lain yang diinginkan
+    document.body.appendChild(div);
+  }
+  
 
 async function gSignIn(response) {
     try {
