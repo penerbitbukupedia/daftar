@@ -50,8 +50,7 @@ async function gSignIn(response) {
 
 function responsePostFunction(response) {
     if (response.status === 200 && response.data) {
-        // Menyimpan token dalam cookie
-        setCookieWithExpireHour("login", response.data.token, 18);
+        console.log(response.data);
         setValue("email",response.data.email);
     } else {
         console.error("Login failed:", response.data?.message || "Unknown error");
