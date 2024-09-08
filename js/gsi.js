@@ -1,7 +1,7 @@
 import {setCookieWithExpireHour,getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/cookie.js";
 import {postJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/url.js";
-import {addCSSIn} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
+import {addCSSIn,setValue} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js';
 
 window.handleCredentialResponse = gSignIn;
@@ -52,17 +52,7 @@ function responsePostFunction(response) {
     if (response.status === 200 && response.data) {
         // Menyimpan token dalam cookie
         setCookieWithExpireHour("login", response.data.token, 18);
-
-        // Menampilkan greeting menggunakan SweetAlert
-        Swal.fire({
-            icon: "success",
-            title: "Welcome!",
-            text: `Hello, ${response.data.user?.name || "User"}!`,
-            showConfirmButton: false,
-            timer: 2000,
-        }).then(() => {
-            redirect("/dashboard");
-        });
+        setValue("email",response.data.email);
     } else {
         console.error("Login failed:", response.data?.message || "Unknown error");
         Swal.fire({
