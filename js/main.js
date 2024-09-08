@@ -21,8 +21,6 @@ function tokenFunction(result){
 
 function PostSignUp(){
     let datainjson = {
-        "nama": getValue("nama"),
-        "email": getValue("email"),
         "nik":getValue("nik"),
         "pekerjaan":getValue("pekerjaan"),
         "alamat":getValue("alamat")
