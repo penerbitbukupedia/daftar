@@ -5,7 +5,7 @@ import { postWithToken,getWithHeader } from "https://cdn.jsdelivr.net/gh/jscroot
 import {piggi} from "/daftar/img/svg.js";
 
 if (getCookie("login")){
-    getWithHeader("https://ped.fly.dev/auth/userdata","login",getCookie("login"),tokenFunction);
+    getWithHeader("https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user","login",getCookie("login"),tokenFunction);
 }else{
     redirect("/");
 }
@@ -31,7 +31,7 @@ function PostSignUp(){
         "alamat":getValue("alamat")
     }
     setInner("formsection",piggi);
-    postWithToken("https://ped.fly.dev/auth/daftar","login",getCookie("login"),datainjson,responseFunction);
+    postWithToken("https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user","login",getCookie("login"),datainjson,responseFunction);
 }
 
 function responseFunction(result){
