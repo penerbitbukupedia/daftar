@@ -11,6 +11,7 @@ if (getCookie("login")){
 }
 
 function tokenFunction(result){
+    console.log(result);
     onClick("submit",PostSignUp);
 }
 
