@@ -4,7 +4,7 @@ import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 
 if (getCookie("login")){
-    getWithHeader("https://ped.fly.dev/auth/userdata","login",getCookie("login"),tokenFunction);
+    getWithHeader("https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user","login",getCookie("login"),tokenFunction);
 }else{
     redirect("/");
 }
@@ -29,7 +29,7 @@ function uploadImage() {
     //hide("inputfile");
     let besar=getFileSize("imageInput");
     setInner("isi",besar);
-    postFileWithHeader('https://ped.fly.dev/auth/upload/image/profil',"login",getCookie("login"),"imageInput","image",renderToHtml)
+    postFileWithHeader('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/upload/profpic',"login",getCookie("login"),"imageInput","profpic",renderToHtml)
 }
 
 function renderToHtml(result){
