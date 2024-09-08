@@ -51,7 +51,7 @@ async function gSignIn(response) {
 function responsePostFunction(response) {
     if (response.status === 200 && response.data) {
         console.log(response.data);
-        setValue("email",response.data.email);
+        setValue("email",response.data.user.email);
     } else {
         console.error("Login failed:", response.data?.message || "Unknown error");
         Swal.fire({
