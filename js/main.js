@@ -12,6 +12,8 @@ if (getCookie("login")){
 
 function tokenFunction(result){
     console.log(result);
+    setValue("nama",result.name);
+    setValue("phone",result.phonenumber);
     onClick("submit",PostSignUp);
 }
 
