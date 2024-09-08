@@ -11,7 +11,7 @@ await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css
 const target_url="https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/auth/register/users";
 
 // Panggil fungsi untuk menambahkan elemen
-if (getValue("email")===""){
+if (getValue("email")){
     appendGoogleSignin();
 }
 
