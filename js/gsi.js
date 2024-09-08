@@ -7,7 +7,7 @@ import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js
 
 await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css","idhead");
 
-const target_url="https://asia-southeast2-awangga.cloudfunctions.net/domyid/auth/users";
+const target_url="https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/auth/registes/user";
 
 window.handleCredentialResponse = gSignIn;
 
@@ -15,7 +15,7 @@ window.handleCredentialResponse = gSignIn;
 async function gSignIn(response) {
     try {
         const gtoken = { token: response.credential };
-        await postJSON(target_url, "login", "", gtoken, responsePostFunction);
+        await postJSON(target_url, "login", getCookie("login"), gtoken, responsePostFunction);
     } catch (error) {
         console.error("Network or JSON parsing error:", error);
         Swal.fire({
