@@ -7,17 +7,11 @@ import {piggi} from "/daftar/img/svg.js";
 if (getCookie("login")){
     getWithHeader("https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user","login",getCookie("login"),tokenFunction);
 }else{
-    redirect("/");
+    redirect("/login");
 }
 
 function tokenFunction(result){
-    if(!result.phone){
-        redirect("/");
-    }else{
-        console.log(result.phone);
-        setValue("phone",result.phone);
-        onClick("submit",PostSignUp);
-    }
+    onClick("submit",PostSignUp);
 }
 
 
