@@ -10,10 +10,10 @@ if (getCookie("login")){
 }
 
 function tokenFunction(result){
-    if(!result.phone){
+    if(!result.phonenumber){
         redirect("/");
     }else{
-        console.log(result.phone);
+        console.log(result.phonenumber);
         //setValue("phone",result.phone);
         onClick("savebutton",uploadImage)
     }
