@@ -25,7 +25,7 @@ function onchangeInputProfPic(){
     if (imageInput.files.length > 0) {
         setInner('ket1','Dipilih file: ');
         setInner('ket2',imageInput.files[0].name);
-        setInner('ket3','Tekan save untuk melakukan upload');
+        setInner('ket3','Tekan upload untuk melakukan upload');
       } 
 }
 
@@ -36,9 +36,27 @@ function uploadImage() {
         alert('Please select an image file');
         return;
     }
+    const saveButton = document.getElementById('savebutton');
+
+    // Menonaktifkan tombol
+    saveButton.disabled = true;
+
+    // Menambahkan kelas untuk mengubah tampilan tombol ketika dinonaktifkan (opsional)
+    saveButton.classList.add('opacity-50', 'cursor-not-allowed');
+
     postFileWithHeader('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/upload/profpic',"login",getCookie("login"),"imageInput","profpic",renderToHtml)
 }
 
 function renderToHtml(result){
     console.log(result);
+    const uploadPreview = document.getElementById('uploadPreview');
+    // Buat elemen img dengan src dari file yang diunggah
+    const imgElement = document.createElement('img');
+    imgElement.src = "https://raw.githubusercontent.com"+result.location;
+    imgElement.alt = "Uploaded Image";
+    imgElement.classList.add("w-full", "h-full", "object-cover", "rounded-lg");
+
+    // Hapus konten dalam div sebelum menampilkan gambar
+    uploadPreview.innerHTML = '';
+    uploadPreview.appendChild(imgElement);
 }
