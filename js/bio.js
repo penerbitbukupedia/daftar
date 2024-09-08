@@ -58,7 +58,7 @@ function renderProfPic(imageurl){
     const imgElement = document.createElement('img');
     imgElement.src = imageurl;
     imgElement.alt = "Uploaded Image";
-    imgElement.classList.add("w-full", "h-full", "object-cover", "rounded-lg");
+    imgElement.classList.add("w-full", "h-full", "object-contain", "rounded-lg");
 
     // Hapus konten dalam div sebelum menampilkan gambar
     uploadPreview.innerHTML = '';
