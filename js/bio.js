@@ -33,10 +33,11 @@ function publishBio(){
     const publishbutton = document.getElementById('publishbutton');
     publishbutton.disabled=true;
     publishbutton.classList.add('opacity-50', 'cursor-not-allowed');
-    const datajson={
-        bio:getValue('bio')
-    }
-    postJSON('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user/bio',"login",getCookie("login"),"imageInput",datajson,runafterPostBio);
+    let biovalue=getValue('bio');
+    console.log(biovalue);
+    const datajson={bio:biovalue};
+    console.log=datajson;
+    //postJSON('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user/bio',"login",getCookie("login"),"imageInput",datajson,runafterPostBio);
 }
 
 function runafterPostBio(result){
