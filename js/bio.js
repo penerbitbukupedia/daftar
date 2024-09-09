@@ -76,7 +76,16 @@ function uploadImage() {
 
 function renderToHtml(result){
     console.log(result);
-    renderProfPic(result.location);
+    if (result.status!==200){
+        Swal.fire({
+            icon: "error",
+            title: result.data.status,
+            text: result.data.response,
+          });
+    }else{
+        renderProfPic(result.location);
+    }
+    
 }
 
 function renderProfPic(imageurl){
