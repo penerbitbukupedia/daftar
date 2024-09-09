@@ -33,7 +33,7 @@ function publishBio(){
     const publishbutton = document.getElementById('publishbutton');
     publishbutton.disabled=true;
     publishbutton.classList.add('opacity-50', 'cursor-not-allowed');
-    datajson={
+    const datajson={
         bio:getValue('bio')
     }
     postJSON('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user/bio',"login",getCookie("login"),"imageInput",datajson,runafterPostBio);
