@@ -2,6 +2,10 @@ import {setInner,getValue,onClick,onChange} from "https://cdn.jsdelivr.net/gh/js
 import {postFileWithHeader,getWithHeader,postJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.5/api.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
+import { addCSS } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.5/element.js";
+import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
+
+await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 
 if (getCookie("login")){
     getWithHeader("https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user","login",getCookie("login"),tokenFunction);
@@ -43,6 +47,14 @@ function publishBio(){
 
 function runafterPostBio(result){
     console.log(result);
+    if (result.status!==200){
+        Swal.fire({
+            icon: "error",
+            title: result.data.status,
+            text: result.data.response,
+          });
+    }
+    
 }
 
 
