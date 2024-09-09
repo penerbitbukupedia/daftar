@@ -37,7 +37,7 @@ function publishBio(){
     console.log(biovalue);
     let datajson={bio:biovalue};
     console.log('sekarang print isi jsonnya');
-    console.log=datajson;
+    console.log(datajson);
     //postJSON('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user/bio',"login",getCookie("login"),"imageInput",datajson,runafterPostBio);
 }
 
