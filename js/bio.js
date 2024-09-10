@@ -82,7 +82,7 @@ function renderToHtml(result){
             text: result.data.response,
           });
     }else{
-        renderProfPic(result.location);
+        renderProfPic(result.data.location);
     }
     
 }
