@@ -1,4 +1,4 @@
-import {postFileWithHeader,getWithHeader,postJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.5/api.js";
+import {postFileJSON,getWithHeader,postJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.6/api.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import { addCSS,setInner,getValue,onClick,onChange } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.5/element.js";
@@ -70,7 +70,7 @@ function uploadImage() {
     // Menambahkan kelas untuk mengubah tampilan tombol ketika dinonaktifkan (opsional)
     saveButton.classList.add('opacity-50', 'cursor-not-allowed');
 
-    postFileWithHeader('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/upload/profpic',"login",getCookie("login"),"imageInput","profpic",renderToHtml)
+    postFileJSON('https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/upload/profpic',"login",getCookie("login"),"imageInput","profpic",renderToHtml)
 }
 
 function renderToHtml(result){
