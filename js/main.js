@@ -62,7 +62,7 @@ function responseFunction(result){
     // Tutup SweetAlert loading setelah upload selesai
     Swal.close();
     if (result.status==200){
-        Swal.fire('Success', 'File uploaded successfully!', 'success');
+        Swal.fire('Success', 'Data user berhasil tersimpan!', 'success');
         redirect("./bio.html");
     }else{
         Swal.fire(result.data.status, result.data.response, 'error');
