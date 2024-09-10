@@ -23,10 +23,10 @@ function tokenFunction(result){
         setValue("nik",result.nik);
     }
     if(result.alamatrumah){
-        setValue("alamat",result.alamatrumah);
+        setValue("alamatrumah",result.alamatrumah);
     }
     if(result.alamatkantor){
-        setValue("alamat",result.alamatkantor);
+        setValue("alamatkantor",result.alamatkantor);
     }
     if(result.pekerjaan){
         setValue("pekerjaan",result.pekerjaan);
