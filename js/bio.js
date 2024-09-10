@@ -62,6 +62,7 @@ function runafterPostBio(result){
           });
         return;
     }
+    Swal.fire('Success', 'Data user berhasil tersimpan!', 'success');
     redirect("/dashboard");
     
 }
