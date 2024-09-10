@@ -59,6 +59,8 @@ function PostSignUp(){
 
 function responseFunction(result){
     console.log(result);
+    // Tutup SweetAlert loading setelah upload selesai
+    Swal.close();
     if (result.status==200){
         Swal.fire('Success', 'File uploaded successfully!', 'success');
         redirect("./bio.html");
