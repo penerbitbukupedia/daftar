@@ -33,6 +33,14 @@ function onchangeInputProfPic(){
 }
 
 function publishBio(){
+    if (getValue("bio").length<250) {
+        Swal.fire({
+            icon: "error",
+            title: "Kurang Lengkap",
+            text: "Silahkan isi biografi anda sebanyak lebih dari 250 karakter",
+          });
+        return;
+    }
     const publishbutton = document.getElementById('publishbutton');
     publishbutton.disabled=true;
     publishbutton.classList.add('opacity-50', 'cursor-not-allowed');
@@ -64,6 +72,7 @@ function uploadImage() {
             title: "File tidak ada",
             text: "Silahkan pilih file yang akan dijadikan profile penulis dahulu",
           });
+        return;
     }
     const saveButton = document.getElementById('savebutton');
 
