@@ -20,8 +20,11 @@ function tokenFunction(result){
     if(result.nik){
         setValue("nik",result.nik);
     }
-    if(result.alamat){
-        setValue("alamat",result.alamat);
+    if(result.alamatrumah){
+        setValue("alamat",result.alamatrumah);
+    }
+    if(result.alamatkantor){
+        setValue("alamat",result.alamatkantor);
     }
     if(result.pekerjaan){
         setValue("pekerjaan",result.pekerjaan);
@@ -36,7 +39,8 @@ function PostSignUp(){
     let datainjson = {
         "nik":getValue("nik"),
         "pekerjaan":getValue("pekerjaan"),
-        "alamat":getValue("alamat")
+        "alamatrumah":getValue("alamatrumah"),
+        "alamatkantor":getValue("alamatkantor")
     }
     setInner("formsection",piggi);
     postJSON("https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user","login",getCookie("login"),datainjson,responseFunction);
