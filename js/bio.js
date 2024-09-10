@@ -60,7 +60,9 @@ function runafterPostBio(result){
             title: result.data.status,
             text: result.data.response,
           });
+        return;
     }
+    redirect("/dashboard");
     
 }
 
