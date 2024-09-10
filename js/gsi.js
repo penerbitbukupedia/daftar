@@ -1,12 +1,12 @@
 import {setCookieWithExpireHour,getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/cookie.js";
 import {postJSON} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/api.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.4/url.js";
-import {addCSSIn,setValue,getValue} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
+import {addCSS,addScriptInHead,setValue,getValue} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
 import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js';
 
 window.handleCredentialResponse = gSignIn;
 
-await addCSSIn("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css","idhead");
+await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 
 const target_url="https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/auth/register/users";
 
@@ -16,8 +16,10 @@ if (getValue("email")){
 }
 
 
-// Buat fungsi untuk menambahkan elemen div ke dalam DOM
-export function appendGoogleSignin() {
+// Buat fungsi untuk memanggil gsi js dan menambahkan elemen div ke dalam DOM
+async function appendGoogleSignin() {
+    //import script google sign in
+    await addScriptInHead("https://accounts.google.com/gsi/client");
     // Buat elemen div
     const div = document.createElement("div");
     
