@@ -1,8 +1,10 @@
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
-import {onClick,getValue,setValue,setInner} from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
+import {onClick,getValue,setValue,setInner,addCSS } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.5/element.js";
 import { postJSON,getWithHeader } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.0.5/api.js";
-import {piggi} from "/daftar/img/svg.js";
+import Swal from "https://cdn.jsdelivr.net/npm/sweetalert2@11/src/sweetalert2.js";
+
+await addCSS("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.css");
 
 if (getCookie("login")){
     getWithHeader("https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user","login",getCookie("login"),tokenFunction);
@@ -42,16 +44,26 @@ function PostSignUp(){
         "alamatrumah":getValue("alamatrumah"),
         "alamatkantor":getValue("alamatkantor")
     }
-    setInner("formsection",piggi);
+    // Tampilkan SweetAlert loading sebelum memulai upload
+    Swal.fire({
+        title: 'Uploading...',
+        text: 'Please wait while your file is being uploaded.',
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        willOpen: () => {
+            Swal.showLoading(); // Tampilkan loading indicator
+        }
+    });
     postJSON("https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/data/user","login",getCookie("login"),datainjson,responseFunction);
 }
 
 function responseFunction(result){
     console.log(result);
     if (result.status==200){
+        Swal.fire('Success', 'File uploaded successfully!', 'success');
         redirect("./bio.html");
     }else{
-        setInner("formsection",result.data.error);
+        Swal.fire(result.data.status, result.data.response, 'error');
     }
     
 }
