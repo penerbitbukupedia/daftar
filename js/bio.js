@@ -59,8 +59,11 @@ function runafterPostBio(result){
 
 function uploadImage() {
     if (!getValue("imageInput")) {
-        alert('Please select an image file');
-        return;
+        Swal.fire({
+            icon: "error",
+            title: "File tidak ada",
+            text: "Silahkan pilih file yang akan dijadikan profile penulis dahulu",
+          });
     }
     const saveButton = document.getElementById('savebutton');
 
