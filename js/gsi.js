@@ -12,7 +12,7 @@ const target_url="https://asia-southeast2-awangga.cloudfunctions.net/bukupedia/a
 
 let emailuser=getValue("email");
 // Panggil fungsi untuk menambahkan elemen
-if (emailuser){
+if (!emailuser){
     console.log(emailuser);
     
     appendGoogleSignin();
