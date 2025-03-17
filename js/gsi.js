@@ -36,6 +36,12 @@ async function appendGoogleSignin() {
   
     // Append elemen div ke body atau elemen lain yang diinginkan
     document.body.appendChild(div);
+    // Buat elemen div tombol
+    const divtombol = document.createElement("div");
+    divtombol.className="g_id_signin";
+    divtombol.setAttribute("data-type","standard");
+    //add
+    document.getElementById("tombolsigningoogle").appendChild(divtombol);
   }
   
 
